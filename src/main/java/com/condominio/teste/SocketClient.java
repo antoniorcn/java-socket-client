@@ -5,6 +5,7 @@ import java.net.*;
 import java.util.Scanner;
 
 public class SocketClient {
+    public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
             try{
                 Socket soc=new Socket("127.0.0.1",8080);
@@ -14,13 +15,13 @@ public class SocketClient {
                 dout.writeUTF("Olá sou um cliente Java\r\n");
 
                 // BufferedReader bfrKey = new BufferedReader(new InputStreamReader(System.in));
-                Scanner scan = new Scanner(System.in);
+                // Scanner scan = new Scanner(System.in);
                 System.out.println("Digite um comando: ");
                 while (true) {
 
 //                    if (bfrKey.ready()) {
                         // String cmd = bfrKey.readLine() + "\r\n";
-                        String cmd = scan.nextLine() + "\r\n";
+                        String cmd = scanner.nextLine() + "\r\n";
                         byte[] b = String.format("%128s", cmd).getBytes();
                         System.out.println("Bytes da mensagem ==> " +  b.length);
                         dout.writeUTF(cmd);
