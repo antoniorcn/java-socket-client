@@ -1,4 +1,5 @@
 package com.condominio.teste;
+import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
@@ -21,8 +22,8 @@ public class SocketClient {
 
 //                    if (bfrKey.ready()) {
                         // String cmd = bfrKey.readLine() + "\r\n";
-                        String cmd = scanner.nextLine() + "\r\n";
-                        byte[] b = String.format("%128s", cmd).getBytes();
+                        String cmd = JOptionPane.showInputDialog("Digite um comando: ");
+                        byte[] b = String.format("%128s\r\n", cmd).getBytes();
                         System.out.println("Bytes da mensagem ==> " +  b.length);
                         dout.writeUTF(cmd);
                         dout.flush();
@@ -30,7 +31,6 @@ public class SocketClient {
                         if ("QUIT".equals(cmd)) {
                             break;
                         }
-                        System.out.println("Digite um comando: ");
 //                    }
                     if (in.available() > 0) {
                         String msg=(String)in.readUTF();
