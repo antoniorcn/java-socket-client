@@ -1,0 +1,2 @@
+com/condominio/teste/SocketClient.java
+ com.condominio.teste.SocketClient
