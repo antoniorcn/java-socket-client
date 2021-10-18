@@ -16,7 +16,7 @@ public class SocketClient {
                 System.out.println("Digite um comando: ");
                 while (true) {
 
-                    if (bfrKey.ready()) {
+//                    if (bfrKey.ready()) {
                         String cmd = bfrKey.readLine() + "\r\n";
                         byte[] b = String.format("%128s", cmd).getBytes();
                         System.out.println("Bytes da mensagem ==> " +  b.length);
@@ -27,7 +27,7 @@ public class SocketClient {
                             break;
                         }
                         System.out.println("Digite um comando: ");
-                    }
+//                    }
                     if (in.available() > 0) {
                         String msg=(String)in.readUTF();
                         System.out.println("Server: " + msg);
