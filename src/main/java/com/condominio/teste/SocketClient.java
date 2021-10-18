@@ -1,4 +1,5 @@
 package com.condominio.teste;
+import java.awt.*;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -12,12 +13,14 @@ public class SocketClient {
 
                 dout.writeUTF("Olá sou um cliente Java\r\n");
 
-                BufferedReader bfrKey = new BufferedReader(new InputStreamReader(System.in));
+                // BufferedReader bfrKey = new BufferedReader(new InputStreamReader(System.in));
+                Scanner scan = new Scanner(System.in);
                 System.out.println("Digite um comando: ");
                 while (true) {
 
 //                    if (bfrKey.ready()) {
-                        String cmd = bfrKey.readLine() + "\r\n";
+                        // String cmd = bfrKey.readLine() + "\r\n";
+                        String cmd = scan.nextLine() + "\r\n";
                         byte[] b = String.format("%128s", cmd).getBytes();
                         System.out.println("Bytes da mensagem ==> " +  b.length);
                         dout.writeUTF(cmd);
