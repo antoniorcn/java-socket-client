@@ -10,6 +10,8 @@ public class SocketClient {
                 DataOutputStream dout= new DataOutputStream(soc.getOutputStream());
                 DataInputStream in = new DataInputStream(soc.getInputStream());
 
+                dout.writeUTF("Olá sou um cliente Java\r\n");
+
                 Scanner scan = new Scanner(System.in);
                 System.out.println("Digite um comando: ");
                 while (true) {
