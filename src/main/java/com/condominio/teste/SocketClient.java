@@ -12,12 +12,12 @@ public class SocketClient {
 
                 dout.writeUTF("Olá sou um cliente Java\r\n");
 
-                Scanner scan = new Scanner(System.in);
+                BufferedReader bfrKey = new BufferedReader(new InputStreamReader(System.in));
                 System.out.println("Digite um comando: ");
                 while (true) {
 
-                    if (System.in.available() > 0) {
-                        String cmd = scan.nextLine() + "\r\n";
+                    if (bfrKey.ready()) {
+                        String cmd = bfrKey.readLine() + "\r\n";
                         byte[] b = String.format("%128s", cmd).getBytes();
                         System.out.println("Bytes da mensagem ==> " +  b.length);
                         dout.writeUTF(cmd);
